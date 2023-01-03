@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import BsmButton from "../components/BsmButton";
+import { env } from "../config";
 import { moveToOauth } from "../util";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
     <div className="flex justify-center mt-[45vh]">
       <BsmButton
         onClick={() => {
-          moveToOauth(router);
+          router.push("https://auth.bssm.kro.kr/oauth?clientId=e7f2af3c&redirectURI=https://bsm-oauth-example.vercel.app/oauth/bsm")
         }}
         className="flex rounded-lg bg-white text-black p-4"
       >
