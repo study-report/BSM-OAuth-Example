@@ -8,7 +8,7 @@ interface BodyData {
 
 export const postAuth = async (bodyData: BodyData) => {
   try {
-    const { data } = await instance.post("/api/handleAuth", bodyData);
+    const { data } = await instance.post("/handleAuth", bodyData);
     return data;
   } catch (error) {
     throw error;
