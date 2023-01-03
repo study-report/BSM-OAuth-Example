@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import useAsyncEffect from "use-async-effect";
 import BsmButton from "../../components/BsmButton";
-import { env } from "../../config";
 import useBsmOauth from "../../hooks/useBsmOAuth";
 import { BsmOauthUser } from "../../interface/bsm.type";
 import { moveToOauth } from "../../util";
@@ -15,8 +14,8 @@ export default function OAuthPage() {
   // useBsmOauth hooks 호출해서 서버에 OAuth 요청 넣음
   const authClient = useBsmOauth(
     authCode,
-    env.BSM_CLIENT_ID,
-    env.BSM_CLIENT_SECRET
+    process.env.BSM_CLIENT_ID!,
+    process.env.BSM_CLIENT_SECRET!
   );
 
   useAsyncEffect(async () => {
