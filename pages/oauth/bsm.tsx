@@ -25,9 +25,6 @@ export default function OAuthPage() {
       setBsmUserData(await bsmOauth); // 저장하고 보여줌
       if (bsmOauth != null) {
         console.log("Bsm 유저 정보", bsmOauth);
-        alert(
-          "정보를 불러왔습니다. \n모든 정보를 확인하시려면 console을 참고해주세요."
-        );
         setStatus(
           "정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
         );
