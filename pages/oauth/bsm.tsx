@@ -14,8 +14,8 @@ export default function OAuthPage() {
   // useBsmOauth hooks 호출해서 서버에 OAuth 요청 넣음
   const authClient = useBsmOauth(
     authCode,
-    process.env.BSM_CLIENT_ID!,
-    process.env.BSM_CLIENT_SECRET!
+    "e7f2af3c",
+    "a790b4eb04620023c690529c59741bd1"!
   );
 
   useAsyncEffect(async () => {
