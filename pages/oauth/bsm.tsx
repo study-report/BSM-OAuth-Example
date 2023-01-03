@@ -43,7 +43,8 @@ export default function OAuthPage() {
     <div className="mt-8">
       <h2 className="font-bold text-5xl text-center">BSM 유저 정보</h2>
       <div className="m-[2rem_auto] w-[720px] border-2 border-white rounded-lg p-8 [&>li]:p-2 [&>p]:p-2">
-        <li>유저코드 : {bsmUserData?.userCode}</li>
+        <li>학번 : {bsmUserData?.student.grade}{bsmUserData?.student.classNo}{bsmUserData?.student.studentNo}</li>
+        <li>이름 : {bsmUserData?.student.name}</li>
         <li>닉네임 : {bsmUserData?.nickname}</li>
         <li>이메일 : {bsmUserData?.email}</li>
         <p>이 이외의 정보는 console을 참고해주세요.</p>
