@@ -1,7 +1,6 @@
 import { NextRouter } from "next/router";
+import { env } from "../config";
 
 export const moveToOauth = (router: NextRouter) => {
-  router.push(
-    "https://auth.bssm.kro.kr/oauth?clientId=e7f2af3c&redirectURI=http://localhost:3000/oauth/bsm"
-  );
+  router.push(env.BSM_OAUTH_REDIRECT_URL!);
 };
