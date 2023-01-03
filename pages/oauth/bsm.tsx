@@ -28,7 +28,7 @@ export default function OAuthPage() {
           "정보를 불러왔습니다. \n모든 정보를 확인하시려면 console을 참고해주세요."
         );
         setStatus(
-          "만약 정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
+          "만약 잠시 후에도 정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
         );
       }
     } catch (error) {
