@@ -1,10 +1,10 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import useAsyncEffect from "use-async-effect";
 import BsmButton from "../../components/BsmButton";
 import useBsmOauth from "../../hooks/useBsmOAuth";
 import { BsmOauthUser } from "../../interface/bsm.type";
-import { moveToOauth } from "../../util";
 
 export default function OAuthPage() {
   const router = useRouter();
@@ -39,27 +39,32 @@ export default function OAuthPage() {
   const [status, setStatus] = React.useState("정보를 불러오는 중 입니다..");
 
   return (
-    <div className="mt-8">
-      <h2 className="font-bold text-5xl text-center">BSM 유저 정보</h2>
-      <div className="m-[2rem_auto] w-[720px] border-2 border-white rounded-lg p-8 [&>li]:p-2 [&>p]:p-2">
-        <li>
-          학번 : {bsmUserData?.student.grade}
-          {bsmUserData?.student.classNo}
-          {bsmUserData?.student.studentNo}
-        </li>
-        <li>이름 : {bsmUserData?.student.name}</li>
-        <li>닉네임 : {bsmUserData?.nickname}</li>
-        <li>이메일 : {bsmUserData?.email}</li>
-        <p>이 이외의 정보는 console을 참고해주세요.</p>
-        <BsmButton
-          className="flex bg-white text-black p-4 rounded-lg mt-2"
-          onClick={() => {
-            router.push("/");
-          }}
-        >
-          <span className="ml-4 block">{status}</span>
-        </BsmButton>
+    <>
+      <Head>
+        <title>BSM 계정 정보</title>
+      </Head>
+      <div className="mt-8">
+        <h2 className="font-bold text-5xl text-center">BSM 유저 정보</h2>
+        <div className="m-[2rem_auto] w-[720px] border-2 border-white rounded-lg p-8 [&>li]:p-2 [&>p]:p-2">
+          <li>
+            학번 : {bsmUserData?.student.grade}
+            {bsmUserData?.student.classNo}
+            {bsmUserData?.student.studentNo}
+          </li>
+          <li>이름 : {bsmUserData?.student.name}</li>
+          <li>닉네임 : {bsmUserData?.nickname}</li>
+          <li>이메일 : {bsmUserData?.email}</li>
+          <p>이 이외의 정보는 console을 참고해주세요.</p>
+          <BsmButton
+            className="flex bg-white text-black p-4 rounded-lg mt-2"
+            onClick={() => {
+              router.push("/");
+            }}
+          >
+            <span className="ml-4 block">{status}</span>
+          </BsmButton>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
