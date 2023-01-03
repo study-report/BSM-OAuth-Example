@@ -1,11 +1,20 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
+import BsmButton from "../components/BsmButton";
+import { moveToOauth } from "../util";
 
-export default function AuthPage() {
+export default function Home() {
+  const router = useRouter();
+
   return (
-    <div>
-      <Link href="https://auth.bssm.kro.kr/oauth?clientId=e7f2af3c&redirectURI=http://localhost:3000/oauth/bsm">
-        눌럿
-      </Link>
+    <div className="flex justify-center mt-[45vh]">
+      <BsmButton
+        onClick={() => {
+          moveToOauth(router);
+        }}
+        className="flex rounded-lg bg-white text-black p-4"
+      >
+        <p className="font-bold ml-2">눌러서 Bsm Oauth 체험하기</p>
+      </BsmButton>
     </div>
   );
 }
