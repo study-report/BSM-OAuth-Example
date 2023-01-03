@@ -27,13 +27,12 @@ export default function OAuthPage() {
         alert(
           "정보를 불러왔습니다. \n모든 정보를 확인하시려면 console을 참고해주세요."
         );
+        setStatus(
+          "만약 정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
+        );
       }
     } catch (error) {
       throw error;
-    } finally {
-      setStatus(
-        "만약 정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
-      );
     }
   }, [authCode]);
 
@@ -43,7 +42,11 @@ export default function OAuthPage() {
     <div className="mt-8">
       <h2 className="font-bold text-5xl text-center">BSM 유저 정보</h2>
       <div className="m-[2rem_auto] w-[720px] border-2 border-white rounded-lg p-8 [&>li]:p-2 [&>p]:p-2">
-        <li>학번 : {bsmUserData?.student.grade}{bsmUserData?.student.classNo}{bsmUserData?.student.studentNo}</li>
+        <li>
+          학번 : {bsmUserData?.student.grade}
+          {bsmUserData?.student.classNo}
+          {bsmUserData?.student.studentNo}
+        </li>
         <li>이름 : {bsmUserData?.student.name}</li>
         <li>닉네임 : {bsmUserData?.nickname}</li>
         <li>이메일 : {bsmUserData?.email}</li>
