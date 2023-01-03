@@ -10,7 +10,8 @@ export default function OAuthPage() {
   const router = useRouter();
   const authCode = String(router.query.code); // redirect 되면서 알아서 들어가는 코드
   const [bsmUserData, setBsmUserData] = React.useState<BsmOauthUser>();
-
+  const [status, setStatus] = React.useState("정보를 불러오는 중 입니다..");
+  
   // useBsmOauth hooks 호출해서 서버에 OAuth 요청 넣음
   const authClient = useBsmOauth(
     authCode,
@@ -28,7 +29,7 @@ export default function OAuthPage() {
           "정보를 불러왔습니다. \n모든 정보를 확인하시려면 console을 참고해주세요."
         );
         setStatus(
-          "만약 잠시 후에도 정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
+          "정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
         );
       }
     } catch (error) {
@@ -36,7 +37,6 @@ export default function OAuthPage() {
     }
   }, [authCode]);
 
-  const [status, setStatus] = React.useState("정보를 불러오는 중 입니다..");
 
   return (
     <>
