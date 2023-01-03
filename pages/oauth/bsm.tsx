@@ -30,8 +30,14 @@ export default function OAuthPage() {
       }
     } catch (error) {
       throw error;
+    } finally {
+      setStatus(
+        "만약 정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요"
+      );
     }
   }, [authCode]);
+
+  const [status, setStatus] = React.useState("정보를 불러오는 중 입니다..");
 
   return (
     <div className="mt-8">
@@ -44,12 +50,10 @@ export default function OAuthPage() {
         <BsmButton
           className="flex bg-white text-black p-4 rounded-lg mt-2"
           onClick={() => {
-            moveToOauth(router);
+            router.push("/");
           }}
         >
-          <span className="ml-4 block">
-            만약 정보가 보이지 않는다면 이 버튼을 눌러 처음부터 다시 해주세요
-          </span>
+          <span className="ml-4 block">{status}</span>
         </BsmButton>
       </div>
     </div>
