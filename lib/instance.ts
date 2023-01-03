@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosInstance } from "axios";
 
 const instance: AxiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://bsm-oauth-example.vercel.app/api/",
   timeout: 10000,
   headers: { "Content-Type": "application/json" },
 });
