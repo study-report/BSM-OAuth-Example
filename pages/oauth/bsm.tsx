@@ -47,16 +47,16 @@ export default function OAuthPage() {
               <>
                 <p>학생</p>
                 <li>
-                  학번 : {bsmUserData?.student.grade}
-                  {bsmUserData?.student.classNo}
-                  {bsmUserData?.student.studentNo}
+                  학번 : {bsmUserData?.student?.grade}
+                  {bsmUserData?.student?.classNo}
+                  {bsmUserData?.student?.studentNo}
                 </li>
-                <li>이름 : {bsmUserData?.student.name}</li>
+                <li>이름 : {bsmUserData?.student?.name}</li>
               </>
             ) : (
               <>
                 <p>선생님</p>
-                <li>이름 : {bsmUserData?.teacher.name}</li>
+                <li>이름 : {bsmUserData?.teacher?.name}</li>
               </>
             )}
 
