@@ -7,9 +7,9 @@ const useBsmOauth = async (
 ) => {
   if (authCode !== "undefined") {
     const data = await postAuth({
-      authCode: authCode,
-      BSM_AUTH_CLIENT_ID: BSM_AUTH_CLIENT_ID,
-      BSM_AUTH_CLIENT_SECRET: BSM_AUTH_CLIENT_SECRET,
+      authCode,
+      BSM_AUTH_CLIENT_ID,
+      BSM_AUTH_CLIENT_SECRET,
     });
     return data;
   }
